@@ -1,13 +1,17 @@
 import React from "react";
 import NavBar from "./NavBar";
 import Display from "./Display";
+import { Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
-      <br></br>
       <NavBar />
-      <Display />
+      <Switch>
+        <Route exact path="/">
+            <Display />
+        </Route>
+      </Switch>
     </div>
   );
 }
