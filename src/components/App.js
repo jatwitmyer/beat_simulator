@@ -5,6 +5,7 @@ import Display from "./Display";
 function App() {
   return (
     <div className="App">
+      <br></br>
       <NavBar />
       <Display />
     </div>
