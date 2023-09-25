@@ -4,11 +4,13 @@ import SoundLibrary from "./SoundLibrary"
 import SavedBeats from "./SavedBeats"
 
 function Display() {
+  return(
     <div>
-        <Visuals />
-        <SoundLibrary />
-        <SavedBeats />
+      <Visuals />
+      <SoundLibrary />
+      <SavedBeats />
     </div>
+  )
 }
 
 export default Display
