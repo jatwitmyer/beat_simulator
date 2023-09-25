@@ -1,6 +1,8 @@
 import React from "react";
 
-function SavedBeats() {
+function SavedBeats( { sounds } ) {
+  console.log(sounds)
+  
   return(
     <></>
   )

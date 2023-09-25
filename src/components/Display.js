@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Visuals from "./Visuals";
 import SoundLibrary from "./SoundLibrary"
 import SavedBeats from "./SavedBeats"
 
 function Display() {
+  const [sounds, setSounds] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:8003/sounds")
+      .then(r=>r.json())
+      .then(sounds => setSounds(sounds))
+  }, [])
+
   return(
     <div>
       <Visuals />
       <SoundLibrary />
-      <SavedBeats />
+      <SavedBeats sounds={sounds}/>
     </div>
   )
 }
