@@ -10,7 +10,8 @@ function NavBar() {
       <ul>
         <li> <NavLink to="/">Home</NavLink></li>
         <li> <NavLink to="/savedbeats">Saved Beats</NavLink></li>
-        <li><a href="#news">Wubstep</a></li>
+        {/* THESE LI NEED A NAVLINK  */}
+        <li><a href="#news">Wubstep</a></li> 
         <li><a href="#contact">EDM</a></li>
         <li><a href="#about">Trap</a></li>
       </ul>
