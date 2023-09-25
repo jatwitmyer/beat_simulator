@@ -2,9 +2,10 @@
   "sounds": [
     {
       "id": 1,
-      "name": "",
-      "ref": "",
+      "name": "EDM_Bass",
+      "ref": "public/assets/EDM_Bass.mp3",
       "isMuted": true
     }
   ]
 }
+
