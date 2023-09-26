@@ -24,9 +24,9 @@ function Display() {
             <SoundLibrary />
         </Route>
 
-        <Route exact path="/savedbeats">
-            <SavedBeats />
-        </Route>
+        {/* <Route exact path="/savedbeats"> */}
+            <SavedBeats sounds={sounds} />
+        {/* </Route> */}
       </Switch>
       
     </div>

@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import BeatButton from "./BeatButton";
+import Tracks from "./Tracks";
 
 function SavedBeats( { sounds } ) {
   // console.log(sounds)
+  const [playingSongs, setPlayingSongs] = useState([])
+  const [globalMute, setGlobalMute] = useState(false)
 
   const edmSounds = sounds.filter(sound => sound.genre === "EDM")
   const wubstepSounds = sounds.filter(sound => sound.genre === "Wubstep")
@@ -30,7 +33,7 @@ function SavedBeats( { sounds } ) {
     .then(beats => {
       const edmBeats = beats.filter(beat => (beat.genre === "EDM"))
       const edmSong = edmBeats.filter(beat => (beat.isMuted === false))
-      console.log(edmSong)
+      setPlayingSongs(edmSong)
     })
     //if they are not muted, then make a player for each of them which starts upon them all being loaded
   }
@@ -41,7 +44,7 @@ function SavedBeats( { sounds } ) {
     .then(beats => {
       const wubBeats = beats.filter(beat => (beat.genre === "Wubstep"))
       const wubSong = wubBeats.filter(beat => (beat.isMuted === false))
-      console.log(wubSong)
+      setPlayingSongs(wubSong)
     })
   }
   function playTrapSong() {
@@ -51,9 +54,16 @@ function SavedBeats( { sounds } ) {
     .then(beats => {
       const trapBeats = beats.filter(beat => (beat.genre === "Trap"))
       const trapSong = trapBeats.filter(beat => (beat.isMuted === false))
-      console.log(trapSong)
+      setPlayingSongs(trapSong)
     })
   }
+
+  const audioSources = playingSongs.map(beat => {
+    console.log(beat.ref)
+    return <Tracks key={beat.id} src={beat.ref} />
+  })
+
+  console.log(audioSources)
 
   return(
     <div>
@@ -69,6 +79,7 @@ function SavedBeats( { sounds } ) {
       {trapElements}
       <br></br>
       <button onClick={playTrapSong}>Play Trap Song</button>
+      {audioSources}
     </div>
   )
 }
