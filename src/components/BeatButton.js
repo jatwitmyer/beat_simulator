@@ -6,6 +6,7 @@ function BeatButton( { sound } ) {
 
   // console.log(sound.isMuted)
   const [isMuted, setIsMuted] = useState(true)
+  const [isActive, setIsActive] = useState(false)
   
   function handleClick() {
     fetch(`http://localhost:8003/sounds/${sound.id}`, {
@@ -22,11 +23,12 @@ function BeatButton( { sound } ) {
     .then(r=>r.json())
     .then(asset => console.log(asset))
     setIsMuted(!isMuted)
+    setIsActive(!isActive)
   }
 
     return(
       <div>
-        <button onClick={handleClick} >{sound.name}</button>
+        <button className={isActive ? `${sound.type}-pad-on` : `${sound.type}-pad`} onClick={handleClick} >{sound.name}</button>
       </div>
     )
   }
