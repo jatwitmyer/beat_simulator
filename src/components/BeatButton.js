@@ -12,11 +12,10 @@ function BeatButton( { sound } ) {
       method: "PATCH",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        "id": 1,
-        "genre": "EDM",
-        "type": "bass",
-        "name": "Bass",
-        "ref": "/assets/EDM_Bass.mp3",
+        "genre": sound.genre,
+        "type": sound.type,
+        "name": sound.name,
+        "ref": sound.ref,
         "isMuted": (!isMuted)
       })
     })
