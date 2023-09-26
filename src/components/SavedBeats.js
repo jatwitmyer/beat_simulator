@@ -36,9 +36,23 @@ function SavedBeats( { sounds } ) {
   }
   function playWubstepSong() {
     console.log("play song")
+    fetch(`http://localhost:8003/sounds`)
+    .then(r=>r.json())
+    .then(beats => {
+      const wubBeats = beats.filter(beat => (beat.genre === "Wubstep"))
+      const wubSong = wubBeats.filter(beat => (beat.isMuted === false))
+      console.log(wubSong)
+    })
   }
   function playTrapSong() {
     console.log("play song")
+    fetch(`http://localhost:8003/sounds`)
+    .then(r=>r.json())
+    .then(beats => {
+      const trapBeats = beats.filter(beat => (beat.genre === "Trap"))
+      const trapSong = trapBeats.filter(beat => (beat.isMuted === false))
+      console.log(trapSong)
+    })
   }
 
   return(
