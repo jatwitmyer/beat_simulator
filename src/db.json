@@ -6,7 +6,7 @@
       "type": "bass",
       "name": "Bass",
       "ref": "/assets/EDM_Bass.mp3",
-      "isMuted": true
+      "isMuted": false
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "type": "drum",
       "name": "Drum 1",
       "ref": "/assets/EDM_Drums_1.mp3",
-      "isMuted": true
+      "isMuted": false
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "type": "drum",
       "name": "Drum 2",
       "ref": "/assets/EDM_Drums_2.mp3",
-      "isMuted": true
+      "isMuted": false
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "type": "snare",
       "name": "Snare",
       "ref": "/assets/EDM_Snares.mp3",
-      "isMuted": true
+      "isMuted": false
     },
     {
       "id": 5,
@@ -38,7 +38,7 @@
       "type": "synth",
       "name": "Lead",
       "ref": "/assets/EDM_Lead_v2.mp3",
-      "isMuted": true
+      "isMuted": false
     },
     {
       "id": 6,
@@ -46,7 +46,7 @@
       "type": "bass",
       "name": "Bass",
       "ref": "/assets/Trap_Bass.mp3",
-      "isMuted": true
+      "isMuted": false
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "type": "drum",
       "name": "Drum 1",
       "ref": "/assets/Trap_Drum_1_v2.mp3",
-      "isMuted": true
+      "isMuted": false
     },
     {
       "id": 8,
@@ -86,7 +86,7 @@
       "type": "bass",
       "name": "Bass",
       "ref": "/assets/Dub_Bass_v2.mp3",
-      "isMuted": false
+      "isMuted": true
     },
     {
       "id": 12,
@@ -94,7 +94,7 @@
       "type": "drum",
       "name": "Drum 1",
       "ref": "/assets/Dub_Drums_1_v3.mp3",
-      "isMuted": false
+      "isMuted": true
     },
     {
       "id": 13,
@@ -110,7 +110,7 @@
       "type": "synth",
       "name": "Lead 1",
       "ref": "/assets/Dub_Lead_1_v2.mp3",
-      "isMuted": false
+      "isMuted": true
     },
     {
       "id": 15,

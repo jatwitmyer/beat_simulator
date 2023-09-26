@@ -34,6 +34,7 @@ function SavedBeats( { sounds } ) {
       const edmBeats = beats.filter(beat => (beat.genre === "EDM"))
       const edmSong = edmBeats.filter(beat => (beat.isMuted === false))
       setPlayingSongs(edmSong)
+      setGlobalMute(false)
     })
     //if they are not muted, then make a player for each of them which starts upon them all being loaded
   }
@@ -45,6 +46,7 @@ function SavedBeats( { sounds } ) {
       const wubBeats = beats.filter(beat => (beat.genre === "Wubstep"))
       const wubSong = wubBeats.filter(beat => (beat.isMuted === false))
       setPlayingSongs(wubSong)
+      setGlobalMute(false)
     })
   }
   function playTrapSong() {
@@ -55,13 +57,19 @@ function SavedBeats( { sounds } ) {
       const trapBeats = beats.filter(beat => (beat.genre === "Trap"))
       const trapSong = trapBeats.filter(beat => (beat.isMuted === false))
       setPlayingSongs(trapSong)
+      setGlobalMute(false)
     })
+  }
+
+  const muteSwitch = () => {
+    setGlobalMute(true)
   }
 
   const audioSources = playingSongs.map(beat => {
     console.log(beat.ref)
-    return <Tracks key={beat.id} src={beat.ref} />
+    return (globalMute ? '' : <Tracks key={beat.id} src={beat.ref} />)
   })
+  console.log(globalMute)
 
   console.log(audioSources)
 
@@ -80,6 +88,8 @@ function SavedBeats( { sounds } ) {
       <br></br>
       <button onClick={playTrapSong}>Play Trap Song</button>
       {audioSources}
+      <br></br>
+      <button onClick={muteSwitch}>Cut the Beat</button>
     </div>
   )
 }
