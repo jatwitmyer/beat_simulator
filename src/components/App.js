@@ -1,13 +1,18 @@
 import React, { useEffect } from "react";
 import NavBar from "./NavBar";
 import Display from "./Display";
+import { Switch, Route } from 'react-router-dom'
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-      <Display />
-          </div>
+      <Switch>
+        <Route exact path="/">
+            <Display />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 
