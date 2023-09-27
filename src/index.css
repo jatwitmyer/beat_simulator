@@ -114,6 +114,48 @@ footer p {
   animation-duration: 182ms;
 }
 
+/* ANIMATION */
+
+@keyframes bounce {
+  from {
+    transform: translate Y (0px);
+  }
+  to {
+    transform: translateY(
+      var(--bounce-offset)
+    );
+  }
+}
+
+.raver-image {
+  animation: bounce alternate infinite;
+}
+
+#dj {
+  --bounce-offset: -20px;
+  animation-duration: 364ms;
+}
+
+#r1 {
+  --bounce-offset: -20px;
+  animation-duration: 182ms;
+}
+
+#r2 {
+  --bounce-offset: -35px;
+  animation-duration: 182ms;
+}
+
+#r3 {
+  --bounce-offset: -42px;
+  animation-duration: 364ms;
+}
+
+#r4 {
+  --bounce-offset: -30px;
+  animation-duration: 182ms;
+}
+
 /* CLASSES */
 
 .hero-image {
