@@ -1,3 +1,5 @@
+/* ELEMENTS */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,7 +7,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-image:url('https://i.ibb.co/hdZb9Sz/wp5813011.png');
+  background-image: url('https://i.ibb.co/hdZb9Sz/wp5813011.png');
   /* background-color: rgb(209, 30, 30); */
 }
 
@@ -30,7 +32,7 @@ li {
   text-align: center;
   display: flex;
   margin: 0 auto;
-  
+
 }
 
 
@@ -48,18 +50,84 @@ li a:hover {
 
 }
 
-img {
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  flex-direction: column;
+}
+
+footer p {
+  display: block;
+  z-index: 10;
+  color: hotpink;
+  font-size: 15px;
+  position: relative;
+  margin-top: 25px;
+  background-color: #000000;
+  border: 2px solid rgb(184, 15, 241);
+}
+
+/* ANIMATION */
+
+@keyframes bounce {
+  from {
+    transform: translate Y (0px);
+  }
+  to {
+    transform: translateY(
+      var(--bounce-offset)
+    );
+  }
+}
+
+.raver-image {
+  animation: bounce alternate infinite;
+}
+
+#dj {
+  --bounce-offset: -20px;
+  animation-duration: 364ms;
+}
+
+#r1 {
+  --bounce-offset: -20px;
+  animation-duration: 182ms;
+}
+
+#r2 {
+  --bounce-offset: -35px;
+  animation-duration: 182ms;
+}
+
+#r3 {
+  --bounce-offset: -42px;
+  animation-duration: 364ms;
+}
+
+#r4 {
+  --bounce-offset: -30px;
+  animation-duration: 182ms;
+}
+
+/* CLASSES */
+
+.hero-image {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  /* border: 6px solid blue; */
+  border-radius: 10px;
 }
 
 .genreimg {
   border: 10px solid rgb(184, 15, 241);
 }
 
-.mixer{
+.mixer {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,6 +142,8 @@ img {
   margin-bottom: 20px;
 }
 
+/* CONTAINERS */
+
 .container {
   display: flex;
   justify-content: center;
@@ -86,6 +156,15 @@ img {
   overflow: auto;
   flex-direction: column;
   color: aqua;
+  padding-bottom: 20px;
+}
+
+.image-container {
+  padding-top: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: space-between;
 }
 
 .padscontainer {
@@ -103,21 +182,117 @@ img {
   float: left;
 }
 
+/* BUTTONS */
+
 .button-container {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
-.beat-pad {
+
+/* DRUM PADS */
+
+.drum-pad {
   width: 100px;
   height: 100px;
-  background-color: #fc3b78; 
+  background-color: #fc3b78;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  color: white; 
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.drum-pad:hover {
+  background-color: #626362;
+}
+
+.drum-pad-on {
+  width: 100px;
+  height: 100px;
+  background-color: #0fa339;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* BASS PADS */
+
+.bass-pad {
+  width: 100px;
+  height: 100px;
+  background-color: #ff8800;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.bass-pad:hover {
+  background-color: #626362;
+}
+
+.bass-pad-on {
+  width: 100px;
+  height: 100px;
+  background-color: #0fa339;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+/* LEAD PADS */
+
+.synth-pad {
+  width: 100px;
+  height: 100px;
+  background-color: rgba(0, 245, 233, 0.692);
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.synth-pad:hover {
+  background-color: #626362;
+}
+
+.synth-pad-on {
+  width: 100px;
+  height: 100px;
+  background-color: #0fa339;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: white;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -126,13 +301,13 @@ img {
 .play-btn {
   width: 100px;
   height: 100px;
-  background-color: #610bd8; 
+  background-color: #610bd8;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  color: white; 
+  color: white;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
@@ -140,20 +315,12 @@ img {
 
 .reset-btn {
   font-size: 40px;
-  background-color: #f01111; 
+  background-color: #f01111;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
-  color: white; 
+  color: white;
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
-}
-
-.beat-pad:hover {
-  background-color: #626362; 
-}
-
-.beat-pad.active {
-  background-color: #0fa339;
 }

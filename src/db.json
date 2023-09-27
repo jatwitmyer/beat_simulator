@@ -2,8 +2,122 @@
   "sounds": [
     {
       "id": 1,
-      "name": "",
-      "ref": "",
+      "genre": "EDM",
+      "type": "bass",
+      "name": "Bass",
+      "ref": "/assets/EDM_Bass.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 2,
+      "genre": "EDM",
+      "type": "drum",
+      "name": "Drum 1",
+      "ref": "/assets/EDM_Drums_1.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 3,
+      "genre": "EDM",
+      "type": "drum",
+      "name": "Drum 2",
+      "ref": "/assets/EDM_Drums_2.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 4,
+      "genre": "EDM",
+      "type": "drum",
+      "name": "Snare",
+      "ref": "/assets/EDM_Snares.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 5,
+      "genre": "EDM",
+      "type": "synth",
+      "name": "Lead",
+      "ref": "/assets/EDM_Lead_v2.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 6,
+      "genre": "Trap",
+      "type": "bass",
+      "name": "Bass",
+      "ref": "/assets/Trap_Bass.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 7,
+      "genre": "Trap",
+      "type": "drum",
+      "name": "Drum 1",
+      "ref": "/assets/Trap_Drum_1_v2.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 8,
+      "genre": "Trap",
+      "type": "drum",
+      "name": "Drum 2",
+      "ref": "/assets/Trap_Drum_2_v2.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 9,
+      "genre": "Trap",
+      "type": "synth",
+      "name": "Lead 1",
+      "ref": "/assets/Trap_Lead_1_v3.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 10,
+      "genre": "Trap",
+      "type": "synth",
+      "name": "Lead 2",
+      "ref": "/assets/Trap_Lead_2_v2.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 11,
+      "genre": "Wubstep",
+      "type": "bass",
+      "name": "Bass",
+      "ref": "/assets/Dub_Bass_v2.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 12,
+      "genre": "Wubstep",
+      "type": "drum",
+      "name": "Drum 1",
+      "ref": "/assets/Dub_Drums_1_v3.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 13,
+      "genre": "Wubstep",
+      "type": "drum",
+      "name": "Drum 2",
+      "ref": "/assets/Dub_Drums_2_v3.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 14,
+      "genre": "Wubstep",
+      "type": "synth",
+      "name": "Lead 1",
+      "ref": "/assets/Dub_Lead_1_v2.mp3",
+      "isMuted": true
+    },
+    {
+      "id": 15,
+      "genre": "Wubstep",
+      "type": "synth",
+      "name": "Lead 2",
+      "ref": "/assets/Dub_Lead_2_v3.mp3",
       "isMuted": true
     }
   ]
