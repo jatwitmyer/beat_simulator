@@ -1,20 +1,21 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import Display from "./Display";
 import SavedBeats from "./SavedBeats"
 import EdmPads from "./EdmPads";
 import Visuals from "./Visuals";
 import WubPads from "./WubPads";
 import TrapPads from "./TrapPads";
 import Tracks from "./Tracks";
-import { Switch, Route } from 'react-router-dom'
 import ResetButton from "./ResetButton";
+import Welcome from "./Welcome";
+import { Switch, Route } from 'react-router-dom'
+
 
 function App() {
   const [sounds, setSounds] = useState([])
   const [playingSongs, setPlayingSongs] = useState([])
   const [globalMute, setGlobalMute] = useState(false)
-  
+
   const audioSources = playingSongs.map(beat => {
     console.log(beat.ref)
     return (globalMute ? '' : <Tracks key={beat.id} src={beat.ref} />)
@@ -36,46 +37,52 @@ function App() {
       <NavBar muteSwitch={muteSwitch} />
       <Switch>
         <Route exact path="/">
-          <Display />
+          <Welcome />
         </Route>
-        <Route exact path="/savedbeats">
+        <Route exact path="/mixer">
           <SavedBeats sounds={sounds} />
           {audioSources}
         </Route>
         <Route exact path="/edm">
           <div className="mixer">
             <Visuals />
-            <EdmPads
-              sounds={sounds}
-              setGlobalMute={setGlobalMute}
-              setPlayingSongs={setPlayingSongs}
-            />
-            <ResetButton muteSwitch={muteSwitch} />
-            {audioSources}
+            <div className="padscontainer">
+              <EdmPads
+                sounds={sounds}
+                setGlobalMute={setGlobalMute}
+                setPlayingSongs={setPlayingSongs}
+              />
+              <ResetButton muteSwitch={muteSwitch} />
+              {audioSources}
+            </div>
           </div>
         </Route>
         <Route exact path="/wubstep">
           <div className="mixer">
             <Visuals />
-            <WubPads
-              sounds={sounds}
-              setGlobalMute={setGlobalMute}
-              setPlayingSongs={setPlayingSongs}
-            />
-            <ResetButton muteSwitch={muteSwitch} />
-            {audioSources}
+            <div className="padscontainer">
+              <WubPads
+                sounds={sounds}
+                setGlobalMute={setGlobalMute}
+                setPlayingSongs={setPlayingSongs}
+              />
+              <ResetButton muteSwitch={muteSwitch} />
+              {audioSources}
+            </div>
           </div>
         </Route>
         <Route exact path="/trap">
           <div className="mixer">
             <Visuals />
-            <TrapPads
-              sounds={sounds}
-              setGlobalMute={setGlobalMute}
-              setPlayingSongs={setPlayingSongs}
-            />
-            <ResetButton muteSwitch={muteSwitch} />
-            {audioSources}
+            <div className="padscontainer">
+              <TrapPads
+                sounds={sounds}
+                setGlobalMute={setGlobalMute}
+                setPlayingSongs={setPlayingSongs}
+              />
+              <ResetButton muteSwitch={muteSwitch} />
+              {audioSources}
+            </div>
           </div>
         </Route>
       </Switch>
