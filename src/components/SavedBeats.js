@@ -1,18 +1,15 @@
 import React, { useState } from "react";
-import BeatButton from "./BeatButton";
 import EdmPads from "./EdmPads";
 import Tracks from "./Tracks";
 import Visuals from "./Visuals";
 import WubPads from "./WubPads";
 import TrapPads from "./TrapPads";
+import ResetButton from "./ResetButton"
 
 function SavedBeats({ sounds }) {
 
   const [playingSongs, setPlayingSongs] = useState([])
   const [globalMute, setGlobalMute] = useState(false)
-
-
-  //if they are not muted, then make a player for each of them which starts upon them all being loaded
 
   const muteSwitch = () => {
     setGlobalMute(true)
@@ -45,9 +42,7 @@ function SavedBeats({ sounds }) {
           />
           {audioSources}
           <br></br>
-          <div className="container">
-            <button className="reset-btn" onClick={muteSwitch}>Cut the Beat</button>
-          </div>
+         <ResetButton muteSwitch={muteSwitch} />
         </div>
       </div>
     </div >
