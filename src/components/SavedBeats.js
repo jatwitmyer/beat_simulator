@@ -3,20 +3,16 @@ import BeatButton from "./BeatButton";
 import EdmPads from "./EdmPads";
 import Tracks from "./Tracks";
 import Visuals from "./Visuals";
-import EdmPad from "./EdmPads";
+import WubPads from "./WubPads";
 
 function SavedBeats({ sounds }) {
 
   const [playingSongs, setPlayingSongs] = useState([])
   const [globalMute, setGlobalMute] = useState(false)
 
-  // const edmSounds = sounds.filter(sound => sound.genre === "EDM")
   const wubstepSounds = sounds.filter(sound => sound.genre === "Wubstep")
   const trapSounds = sounds.filter(sound => sound.genre === "Trap")
 
-  // const edmElements = edmSounds.map(sound => {
-  //   return (<BeatButton key={sound.id} sound={sound} />)
-  // })
   const wubstepElements = wubstepSounds.map(sound => {
     return (<BeatButton key={sound.id} sound={sound} />)
   })
@@ -24,19 +20,9 @@ function SavedBeats({ sounds }) {
     return (<BeatButton key={sound.id} sound={sound} />)
   })
 
-  // function playEdmSong() {
-  //   console.log("play song")
-  //   //fetch all edmSounds from the database
-  //   fetch(`http://localhost:8003/sounds`)
-  //     .then(r => r.json())
-  //     .then(beats => {
-  //       const edmBeats = beats.filter(beat => (beat.genre === "EDM"))
-  //       const edmSong = edmBeats.filter(beat => (beat.isMuted === false))
-  //       setPlayingSongs(edmSong)
-  //       setGlobalMute(false)
-  //     })
-    //if they are not muted, then make a player for each of them which starts upon them all being loaded
-  // }
+
+  //if they are not muted, then make a player for each of them which starts upon them all being loaded
+
   function playWubstepSong() {
     console.log("play song")
     fetch(`http://localhost:8003/sounds`)
@@ -75,13 +61,16 @@ function SavedBeats({ sounds }) {
       <div className="mixer">
         <Visuals />
         <div className="padscontainer">
-          <EdmPads sounds={sounds} setGlobalMute={setGlobalMute} setPlayingSongs={setPlayingSongs} />
-          <h1>Wubstep Sounds:</h1>
-          <div className="button-container">
-            {wubstepElements}
-            <br></br>
-            <button className="play-btn" onClick={playWubstepSong}>Play Wubstep Song</button>
-          </div>
+          <EdmPads
+            sounds={sounds}
+            setGlobalMute={setGlobalMute}
+            setPlayingSongs={setPlayingSongs}
+          />
+          <WubPads
+            sounds={sounds}
+            setGlobalMute={setGlobalMute}
+            setPlayingSongs={setPlayingSongs}
+          />
           <h1>Trap Sounds:</h1>
           <div className="button-container">
             {trapElements}
