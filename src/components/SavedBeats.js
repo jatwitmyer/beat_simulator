@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import BeatButton from "./BeatButton";
 import Tracks from "./Tracks";
+import Visuals from "./Visuals";
 
 function SavedBeats({ sounds }) {
   // console.log(sounds)
@@ -76,9 +77,7 @@ function SavedBeats({ sounds }) {
   return (
     <div>
       <div className="mixer">
-        <div className="container">
-          <h1>....</h1>
-        </div>
+        <Visuals />
         <div className="padscontainer">
           <h1>EDM Sounds:</h1>
           <div className="button-container">

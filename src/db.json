@@ -46,7 +46,7 @@
       "type": "bass",
       "name": "Bass",
       "ref": "/assets/Trap_Bass.mp3",
-      "isMuted": false
+      "isMuted": true
     },
     {
       "id": 7,
