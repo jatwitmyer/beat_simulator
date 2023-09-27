@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import NavBar from "./NavBar";
-import Display from "./Display";
 import SavedBeats from "./SavedBeats"
 import EdmPads from "./EdmPads";
 import Visuals from "./Visuals";
@@ -9,6 +8,7 @@ import TrapPads from "./TrapPads";
 import Tracks from "./Tracks";
 import { Switch, Route } from 'react-router-dom'
 import ResetButton from "./ResetButton";
+import Welcome from "./Welcome";
 
 function App() {
   const [sounds, setSounds] = useState([])
@@ -36,7 +36,7 @@ function App() {
       <NavBar muteSwitch={muteSwitch} />
       <Switch>
         <Route exact path="/">
-          <Display />
+          <Welcome />
         </Route>
         <Route exact path="/savedbeats">
           <SavedBeats sounds={sounds} />
