@@ -14,7 +14,7 @@ function App() {
   const [sounds, setSounds] = useState([])
   const [playingSongs, setPlayingSongs] = useState([])
   const [globalMute, setGlobalMute] = useState(false)
-  
+
   const audioSources = playingSongs.map(beat => {
     console.log(beat.ref)
     return (globalMute ? '' : <Tracks key={beat.id} src={beat.ref} />)
@@ -45,37 +45,43 @@ function App() {
         <Route exact path="/edm">
           <div className="mixer">
             <Visuals />
-            <EdmPads
-              sounds={sounds}
-              setGlobalMute={setGlobalMute}
-              setPlayingSongs={setPlayingSongs}
-            />
-            <ResetButton muteSwitch={muteSwitch} />
-            {audioSources}
+            <div className="padscontainer">
+              <EdmPads
+                sounds={sounds}
+                setGlobalMute={setGlobalMute}
+                setPlayingSongs={setPlayingSongs}
+              />
+              <ResetButton muteSwitch={muteSwitch} />
+              {audioSources}
+            </div>
           </div>
         </Route>
         <Route exact path="/wubstep">
           <div className="mixer">
             <Visuals />
-            <WubPads
-              sounds={sounds}
-              setGlobalMute={setGlobalMute}
-              setPlayingSongs={setPlayingSongs}
-            />
-            <ResetButton muteSwitch={muteSwitch} />
-            {audioSources}
+            <div className="padscontainer">
+              <WubPads
+                sounds={sounds}
+                setGlobalMute={setGlobalMute}
+                setPlayingSongs={setPlayingSongs}
+              />
+              <ResetButton muteSwitch={muteSwitch} />
+              {audioSources}
+            </div>
           </div>
         </Route>
         <Route exact path="/trap">
           <div className="mixer">
             <Visuals />
-            <TrapPads
-              sounds={sounds}
-              setGlobalMute={setGlobalMute}
-              setPlayingSongs={setPlayingSongs}
-            />
-            <ResetButton muteSwitch={muteSwitch} />
-            {audioSources}
+            <div className="padscontainer">
+              <TrapPads
+                sounds={sounds}
+                setGlobalMute={setGlobalMute}
+                setPlayingSongs={setPlayingSongs}
+              />
+              <ResetButton muteSwitch={muteSwitch} />
+              {audioSources}
+            </div>
           </div>
         </Route>
       </Switch>
