@@ -5,7 +5,7 @@ function NavBar() {
   return(
     <>
       <br></br>
-      <img src="https://i.ibb.co/2K2MfqY/header.png" alt="header" border="0"></img>
+      <img className="hero-image" src="https://i.ibb.co/2K2MfqY/header.png" alt="header" border="0"></img>
       <br></br>
       <ul>
         <li> <NavLink to="/">Home</NavLink></li>
