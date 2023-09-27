@@ -12,4 +12,4 @@ function Visuals() {
   )
 }
 
-export default Visuals
+export default Visuals;

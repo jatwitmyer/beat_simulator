@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import { Howl, Howler } from "howler";
-import * as Tone from "tone";
 
 function BeatButton( { sound } ) {
 
