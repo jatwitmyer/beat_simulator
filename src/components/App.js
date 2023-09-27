@@ -6,9 +6,10 @@ import Visuals from "./Visuals";
 import WubPads from "./WubPads";
 import TrapPads from "./TrapPads";
 import Tracks from "./Tracks";
-import { Switch, Route } from 'react-router-dom'
 import ResetButton from "./ResetButton";
 import Welcome from "./Welcome";
+import { Switch, Route } from 'react-router-dom'
+
 
 function App() {
   const [sounds, setSounds] = useState([])
@@ -38,7 +39,7 @@ function App() {
         <Route exact path="/">
           <Welcome />
         </Route>
-        <Route exact path="/savedbeats">
+        <Route exact path="/mixer">
           <SavedBeats sounds={sounds} />
           {audioSources}
         </Route>

@@ -9,7 +9,7 @@ function NavBar({muteSwitch}) {
       <br></br>
       <ul>
         <li onClick={muteSwitch}><NavLink to="/">Home</NavLink></li>
-        <li onClick={muteSwitch}><NavLink to="/savedbeats">Saved Beats</NavLink></li>
+        <li onClick={muteSwitch}><NavLink to="/mixer">All</NavLink></li>
         <li onClick={muteSwitch}><NavLink to="/wubstep">Wubstep</NavLink></li>
         <li onClick={muteSwitch}><NavLink to="/edm">EDM</NavLink></li>
         <li onClick={muteSwitch}><NavLink to="/trap" >Trap</NavLink></li>
