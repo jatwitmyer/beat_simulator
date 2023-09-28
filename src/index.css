@@ -86,7 +86,7 @@ footer p {
   }
 }
 
-.raver-image {
+.Trap {
   animation: bounce alternate infinite;
 }
 
@@ -128,34 +128,88 @@ footer p {
   }
 }
 
-.raver-image {
+.EDM, .Trap, .Wubstep {
   animation: bounce alternate infinite;
 }
 
-#dj {
+/* EDM Meeples */
+#dj-EDM {
+  --bounce-offset: -13px;
+  animation-duration: 242ms;
+}
+
+#r1-EDM {
+  --bounce-offset: -28px;
+  animation-duration: 121ms;
+}
+
+#r2-EDM {
+  --bounce-offset: -35px;
+  animation-duration: 242ms;
+}
+
+#r3-EDM {
+  --bounce-offset: -19px;
+  animation-duration: 121ms;
+}
+
+#r4-EDM {
+  --bounce-offset: -43px;
+  animation-duration: 242ms;
+}
+
+/* Trap Meeples */
+#dj-Trap {
   --bounce-offset: -20px;
   animation-duration: 364ms;
 }
 
-#r1 {
+#r1-Trap {
   --bounce-offset: -20px;
   animation-duration: 182ms;
 }
 
-#r2 {
+#r2-Trap {
   --bounce-offset: -35px;
   animation-duration: 182ms;
 }
 
-#r3 {
+#r3-Trap {
   --bounce-offset: -42px;
   animation-duration: 364ms;
 }
 
-#r4 {
+#r4-Trap {
   --bounce-offset: -30px;
   animation-duration: 182ms;
 }
+
+/* Wubstep Meeples */
+#dj-Wubstep {
+  --bounce-offset: -25px;
+  animation-duration: 345ms;
+}
+
+#r1-Wubstep {
+  --bounce-offset: -33px;
+  animation-duration: 345ms;
+}
+
+#r2-Wubstep {
+  --bounce-offset: -53px;
+  animation-duration: 345ms;
+}
+
+#r3-Wubstep {
+  --bounce-offset: -130px;
+  animation-duration: 345ms;
+}
+
+#r4-Wubstep {
+  --bounce-offset: -40px;
+  animation-duration: 345ms;
+}
+
 
 /* CLASSES */
 

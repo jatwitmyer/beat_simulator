@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import BeatButton from "./BeatButton";
 
 function EdmPads({ sounds, setPlayingSongs, setGlobalMute, beatButtonWasClicked, setBeatButtonWasClicked }) {
@@ -21,9 +21,11 @@ function EdmPads({ sounds, setPlayingSongs, setGlobalMute, beatButtonWasClicked,
                 const edmSong = edmBeats.filter(beat => (beat.isMuted === false))
                 setPlayingSongs(edmSong)
                 setGlobalMute(false)
-                console.log(beats)
+                // console.log(beats)
             })
     }
+
+    
 
     return (
         <div>
