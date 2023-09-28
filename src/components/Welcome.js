@@ -9,22 +9,32 @@ function Welcome() {
     .then(data => setResponses(data))
   }, [])
 
-  console.log(responses)
+  const [formData, setFormData] = useState({
+    comment: "",
+    name: ""
+  })
+
+  function handleChange(e) {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    })
+  }
   
   function handleForm(e) {
     e.preventDefault()
-    const newResponse = {
-      comment: e.target.comment.value,
-      name: e.target.name.value
-    }
+    // const newResponse = {
+    //   comment: e.target.comment.value,
+    //   name: e.target.name.value
+    // }
     // console.log(newResponse)
     fetch("http://localhost:8003/responses", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
-      body: JSON.stringify(newResponse)
+      body: JSON.stringify(formData)
     })
     .then(r=>r.json())
-    .then(data => setResponses([...responses, data]))
+    .then(newResponse => setResponses([...responses, newResponse]))
     e.target.comment.value = ""
     e.target.name.value = ""
   }
@@ -57,11 +67,11 @@ function Welcome() {
         <form className="form" name="form" onSubmit={handleForm}>
           <label>
             Comment: <br/>
-            <input type="text" name="comment"/> <br/>
+            <input type="text" name="comment" onChange={handleChange}/> <br/>
           </label>
           <label>
             Name: <br/>
-            <input  type="text" name="name"/> <br/>
+            <input  type="text" name="name" onChange={handleChange}/> <br/>
           </label>
           <input type="submit" name="submit"></input>
         </form>
