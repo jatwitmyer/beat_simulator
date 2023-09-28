@@ -46,7 +46,7 @@
       "type": "bass",
       "name": "Bass",
       "ref": "/assets/Trap_Bass.mp3",
-      "isMuted": false
+      "isMuted": true
     },
     {
       "id": 7,
@@ -54,7 +54,7 @@
       "type": "drum",
       "name": "Drum 1",
       "ref": "/assets/Trap_Drum_1_v2.mp3",
-      "isMuted": false
+      "isMuted": true
     },
     {
       "id": 8,
@@ -62,7 +62,7 @@
       "type": "drum",
       "name": "Drum 2",
       "ref": "/assets/Trap_Drum_2_v2.mp3",
-      "isMuted": false
+      "isMuted": true
     },
     {
       "id": 9,
