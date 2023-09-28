@@ -8,7 +8,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-image: url('https://i.ibb.co/hdZb9Sz/wp5813011.png');
-  /* background-color: rgb(209, 30, 30); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 code {
@@ -24,8 +26,7 @@ ul {
   overflow: hidden;
   background-color: #000000;
   width: 65%;
-  /* border: 6px solid blue */
-  /* text-align: center; */
+  border-radius: 10px;
 }
 
 li {
@@ -182,6 +183,8 @@ footer p {
   flex-direction: column;
   border: 10px solid rgb(184, 15, 241);
   margin-bottom: 20px;
+  margin-top: 30px;
+  border-radius: 10px;
 }
 
 /* CONTAINERS */
@@ -222,6 +225,21 @@ footer p {
   flex-direction: column;
   color: aqua;
   float: left;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  display: inline-flex;
+}
+
+.welcome-message, .instructions {
+  margin: 15px;
+}
+
+.welcome-message {
+  text-align: justify;
 }
 
 /* BUTTONS */
@@ -353,6 +371,7 @@ footer p {
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  margin-left: 25px;
 }
 
 .reset-btn {
@@ -365,4 +384,11 @@ footer p {
   font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
+  margin-top: 25px;
+}
+
+/* ID */
+
+#welcome {
+  color: white;
 }
