@@ -16,14 +16,15 @@ function App() {
   const [playingSongs, setPlayingSongs] = useState([])
   const [globalMute, setGlobalMute] = useState(false)
   const [beatButtonWasClicked, setBeatButtonWasClicked] = useState(0)
+  const [meeples, setMeeples] = useState("")
 
   const audioSources = playingSongs.map(beat => {
-    console.log(beat.ref)
     return (globalMute ? '' : <Tracks key={beat.id} src={beat.ref} />)
   })
 
   const muteSwitch = () => {
     setGlobalMute(true)
+    setMeeples("still")
   }
 
   useEffect(() => {
@@ -31,6 +32,10 @@ function App() {
       .then(r => r.json())
       .then(sounds => setSounds(sounds))
   }, [beatButtonWasClicked])
+
+  useEffect(()=>{
+    setMeeples(playingSongs.length > 0 ? playingSongs[0].genre : "still")
+  }, [playingSongs])
 
   return (
     <div className="App">
@@ -40,16 +45,26 @@ function App() {
           <Welcome />
         </Route>
         <Route exact path="/mixer">
-          <SavedBeats
-            sounds={sounds}
-            beatButtonWasClicked={beatButtonWasClicked}
-            setBeatButtonWasClicked={setBeatButtonWasClicked}
-          />
-          {audioSources}
+          <div className="mixer">
+            <Visuals meeples={meeples}/>
+            <div className="padscontainer">
+              <SavedBeats
+                sounds={sounds}
+                playingSongs={playingSongs}
+                setPlayingSongs={setPlayingSongs}
+                beatButtonWasClicked={beatButtonWasClicked}
+                setBeatButtonWasClicked={setBeatButtonWasClicked}
+                setMeeples={setMeeples}
+                muteSwitch={muteSwitch}
+                setGlobalMute={setGlobalMute}
+              />
+            </div>
+            {audioSources}
+          </div>
         </Route>
         <Route exact path="/edm">
           <div className="mixer">
-            <Visuals />
+            <Visuals meeples={meeples}/>
             <div className="padscontainer">
               <EdmPads
                 sounds={sounds}
@@ -65,7 +80,7 @@ function App() {
         </Route>
         <Route exact path="/wubstep">
           <div className="mixer">
-            <Visuals />
+            <Visuals meeples={meeples}/>
             <div className="padscontainer">
               <TrapPads
                 sounds={sounds}
@@ -81,7 +96,7 @@ function App() {
         </Route>
         <Route exact path="/trap">
           <div className="mixer">
-            <Visuals />
+            <Visuals meeples={meeples}/>
             <div className="padscontainer">
               <WubPads
                 sounds={sounds}

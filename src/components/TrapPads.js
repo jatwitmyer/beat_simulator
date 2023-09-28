@@ -23,7 +23,6 @@ function TrapPads({ sounds, setPlayingSongs, setGlobalMute, beatButtonWasClicked
             })
     }
 
-
     return (
         <div>
             <h1>Trap Sounds:</h1>
