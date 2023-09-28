@@ -1,6 +1,38 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 function Welcome() {
+  const [responses, setResponses] = useState([])
+
+  useEffect(() => {
+    fetch("http://localhost:8003/responses")
+    .then(r=>r.json())
+    .then(data => setResponses(data))
+  }, [])
+
+  console.log(responses)
+  
+  function handleForm(e) {
+    e.preventDefault()
+    const newResponse = {
+      comment: e.target.comment.value,
+      name: e.target.name.value
+    }
+    // console.log(newResponse)
+    fetch("http://localhost:8003/responses", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(newResponse)
+    })
+    .then(r=>r.json())
+    .then(data => setResponses([...responses, data]))
+    e.target.comment.value = ""
+    e.target.name.value = ""
+  }
+
+  const responsesElements = responses.map(response => {
+    return( <p key={response.id}>{response.name}: {response.comment}</p> )
+  })
+
   return (
     <div className="mixer" id="welcome">
       <h1 className="welcome-title">Welcome</h1>
@@ -20,6 +52,22 @@ function Welcome() {
           <span>4.</span> To stop the music click the “CUT THE BEAT” button. Your selections will still be selected.
         </div>
       </div>
+      <div>
+        <h2>Leave a Comment:</h2>
+        <form className="form" name="form" onSubmit={handleForm}>
+          <label>
+            Comment: <br/>
+            <input type="text" name="comment"/> <br/>
+          </label>
+          <label>
+            Name: <br/>
+            <input  type="text" name="name"/> <br/>
+          </label>
+          <input type="submit" name="submit"></input>
+        </form>
+      </div>
+      <h2>Comments:</h2>
+      {responsesElements}
     </div>
   )
 }
