@@ -86,35 +86,6 @@ footer p {
   }
 }
 
-.Trap {
-  animation: bounce alternate infinite;
-}
-
-#dj {
-  --bounce-offset: -20px;
-  animation-duration: 364ms;
-}
-
-#r1 {
-  --bounce-offset: -20px;
-  animation-duration: 182ms;
-}
-
-#r2 {
-  --bounce-offset: -35px;
-  animation-duration: 182ms;
-}
-
-#r3 {
-  --bounce-offset: -42px;
-  animation-duration: 364ms;
-}
-
-#r4 {
-  --bounce-offset: -30px;
-  animation-duration: 182ms;
-}
-
 /* ANIMATION */
 
 @keyframes bounce {
@@ -302,6 +273,38 @@ footer p {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+}
+
+.reset-database {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10;
+  background-color: #000000;
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: auto;
+  flex-direction: column;
+  border: 5px solid rgb(184, 15, 241);
+  margin-bottom: 20px;
+  margin-top: 30px;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.reset-database-button {
+  /* background: red; */
+  font-size: 20px;
+  background-color: #f4e540;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
 /* DRUM PADS */

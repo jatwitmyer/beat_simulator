@@ -1,7 +1,7 @@
 import React from "react";
 
 function Visuals({meeples}) {
-  console.log(meeples)
+  // console.log(meeples)
   return (
     <section className="image-container">
       <img className={meeples} id={`dj-${meeples}`} src="/assets/neon_dj.png" alt="" height="65px" />

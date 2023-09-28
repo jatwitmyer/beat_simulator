@@ -2,21 +2,12 @@ import React, { useEffect, useState } from "react";
 
 function BeatButton( { sound, beatButtonWasClicked, setBeatButtonWasClicked } ) {
 
-  // const [buttons, setButtons] = useState([])
+  // console.log(sound)
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:8003/sounds/${sound.id}`)
-  //   .then(r=>r.json())
-  //   .then(buttonData => setButtons(buttonData))
-  // }, [])
+  // const [isMuted, setIsMuted] = useState(sound.isMuted)
+  // const [isActive, setIsActive] = useState(false)
 
-  // console.log(buttons)
-
-  // console.log(sound.isMuted)
-  const [isMuted, setIsMuted] = useState(sound.isMuted)
-  const [isActive, setIsActive] = useState(false)
-
-  // console.log(sound.genre + " " + sound.name, sound.isMuted)
+  console.log(sound.genre + " " + sound.name, sound.isMuted)
 
   function handleClick() {
     fetch(`http://localhost:8003/sounds/${sound.id}`, {
@@ -27,21 +18,19 @@ function BeatButton( { sound, beatButtonWasClicked, setBeatButtonWasClicked } ) 
         "type": sound.type,
         "name": sound.name,
         "ref": sound.ref,
-        "isMuted": (!isMuted)
+        "isMuted": (!sound.isMuted)
       })
     })
     .then(r=>r.json())
-    .then(asset => console.log(asset))
-    setIsMuted(!isMuted)
-    setIsActive(!isActive)
+    // .then(asset => console.log(asset))
+    // setIsMuted(!isMuted)
+    // setIsActive(!isActive)
     setBeatButtonWasClicked(beatButtonWasClicked + 1)
   }
 
-
-
     return(
       <div>
-        <button className={isMuted ? `${sound.type}-pad` : `${sound.type}-pad-on`} onClick={handleClick} >{sound.name}</button>
+        <button className={sound.isMuted ? `${sound.type}-pad` : `${sound.type}-pad-on`} onClick={handleClick} >{sound.name}</button>
       </div>
     )
   }

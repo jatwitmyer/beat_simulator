@@ -2,7 +2,7 @@ import React from "react";
 import BeatButton from "./BeatButton";
 
 function EdmPads({ sounds, setPlayingSongs, setGlobalMute, beatButtonWasClicked, setBeatButtonWasClicked }) {
-
+    
     const edmSounds = sounds.filter(sound => sound.genre === "EDM")
 
     const edmElements = edmSounds.map(sound => {
