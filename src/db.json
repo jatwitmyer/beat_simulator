@@ -120,5 +120,17 @@
       "ref": "/assets/Dub_Lead_2_v3.mp3",
       "isMuted": true
     }
+  ],
+  "responses": [
+    {
+      "comment": "Thank GOD this doesn't have any metronomes in it. They are disgusting.",
+      "name": "Evil Cooper",
+      "id": 1
+    },
+    {
+      "comment": "I promise to remember about step sequencers when asking Evil Cooper to make a metronome next time",
+      "name": "Evil Donovan",
+      "id": 2
+    }
   ]
 }
