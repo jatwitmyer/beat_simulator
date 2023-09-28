@@ -18,7 +18,7 @@ function App() {
   const [globalMute, setGlobalMute] = useState(false)
   const [beatButtonWasClicked, setBeatButtonWasClicked] = useState(0)
   const [meeples, setMeeples] = useState("")
-  const [resetDatabaseButtonWasClicked, setResetDatabaseButtonWasClicked] = useState(0)
+  const [resetDatabaseData, setResetDatabaseData] = useState([])
 
   const audioSources = playingSongs.map(beat => {
     return (globalMute ? '' : <Tracks key={beat.id} src={beat.ref} />)
@@ -30,34 +30,31 @@ function App() {
   }
 
   useEffect(() => {
+    console.log("useEffect ran")
     fetch("http://localhost:8003/sounds")
       .then(r => r.json())
       .then(sounds => setSounds(sounds))
-  }, [beatButtonWasClicked, resetDatabaseButtonWasClicked])
+  }, [beatButtonWasClicked, resetDatabaseData])
 
   useEffect(() => {
     setMeeples(playingSongs.length > 0 ? playingSongs[0].genre : "still")
   }, [playingSongs])
 
   function resetDatabase() {
-    console.log("Reset button clicked")
-    // const resetSounds = sounds.map(sound => {
+    // console.log("Reset button clicked")
     sounds.forEach(sound => {
       fetch(`http://localhost:8003/sounds/${sound.id}`, {
         method: "PATCH",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          "genre": sound.genre,
-          "type": sound.type,
-          "name": sound.name,
-          "ref": sound.ref,
           "isMuted": true
         })
       })
         .then(r => r.json())
-        .then(data => console.log(data))
+        // .then(data => {})
     })
-    setResetDatabaseButtonWasClicked(resetDatabaseButtonWasClicked + 1)
+    muteSwitch()
+    setResetDatabaseData([0])
   }
 
   return (
@@ -87,7 +84,6 @@ function App() {
           <div className="reset-database">
             <ResetDatabase
               resetDatabase={resetDatabase}
-              setResetDatabaseButtonWasClicked={setResetDatabaseButtonWasClicked}
             />
           </div>
         </Route>
@@ -109,7 +105,6 @@ function App() {
           <div className="reset-database">
             <ResetDatabase
               resetDatabase={resetDatabase}
-              setResetDatabaseButtonWasClicked={setResetDatabaseButtonWasClicked}
             />
           </div>
         </Route>
@@ -131,7 +126,6 @@ function App() {
           <div className="reset-database">
             <ResetDatabase
               resetDatabase={resetDatabase}
-              setResetDatabaseButtonWasClicked={setResetDatabaseButtonWasClicked}
             />
           </div>
         </Route>
@@ -153,7 +147,6 @@ function App() {
           <div className="reset-database">
             <ResetDatabase
               resetDatabase={resetDatabase}
-              setResetDatabaseButtonWasClicked={setResetDatabaseButtonWasClicked}
             />
           </div>
         </Route>
