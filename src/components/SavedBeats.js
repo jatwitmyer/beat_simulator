@@ -6,7 +6,7 @@ import WubPads from "./WubPads";
 import TrapPads from "./TrapPads";
 import ResetButton from "./ResetButton"
 
-function SavedBeats({ sounds }) {
+function SavedBeats({ sounds, beatButtonWasClicked, setBeatButtonWasClicked }) {
 
   const [playingSongs, setPlayingSongs] = useState([])
   const [globalMute, setGlobalMute] = useState(false)
@@ -29,20 +29,26 @@ function SavedBeats({ sounds }) {
             sounds={sounds}
             setGlobalMute={setGlobalMute}
             setPlayingSongs={setPlayingSongs}
-          />
-          <WubPads
-            sounds={sounds}
-            setGlobalMute={setGlobalMute}
-            setPlayingSongs={setPlayingSongs}
+            beatButtonWasClicked={beatButtonWasClicked}
+            setBeatButtonWasClicked={setBeatButtonWasClicked}
           />
           <TrapPads
             sounds={sounds}
             setGlobalMute={setGlobalMute}
             setPlayingSongs={setPlayingSongs}
+            beatButtonWasClicked={beatButtonWasClicked}
+            setBeatButtonWasClicked={setBeatButtonWasClicked}
+          />
+          <WubPads
+            sounds={sounds}
+            setGlobalMute={setGlobalMute}
+            setPlayingSongs={setPlayingSongs}
+            beatButtonWasClicked={beatButtonWasClicked}
+            setBeatButtonWasClicked={setBeatButtonWasClicked}
           />
           {audioSources}
           <br></br>
-         <ResetButton muteSwitch={muteSwitch} />
+          <ResetButton muteSwitch={muteSwitch} />
         </div>
       </div>
     </div >

@@ -1,12 +1,12 @@
 import React from "react";
 import BeatButton from "./BeatButton";
 
-function TrapPads({ sounds, setPlayingSongs, setGlobalMute }) {
+function TrapPads({ sounds, setPlayingSongs, setGlobalMute, beatButtonWasClicked, setBeatButtonWasClicked }) {
 
     const trapSounds = sounds.filter(sound => sound.genre === "Trap")
 
     const trapElements = trapSounds.map(sound => {
-        return (<BeatButton key={sound.id} sound={sound} />)
+        return (<BeatButton key={sound.id} sound={sound} beatButtonWasClicked={beatButtonWasClicked} setBeatButtonWasClicked={setBeatButtonWasClicked}/>)
     })
 
     //if they are not muted, then make a player for each of them which starts upon them all being loaded

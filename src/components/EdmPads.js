@@ -1,12 +1,12 @@
-import React from "react";
+import React, {useState} from "react";
 import BeatButton from "./BeatButton";
 
-function EdmPads({ sounds, setPlayingSongs, setGlobalMute }) {
+function EdmPads({ sounds, setPlayingSongs, setGlobalMute, beatButtonWasClicked, setBeatButtonWasClicked }) {
 
     const edmSounds = sounds.filter(sound => sound.genre === "EDM")
 
     const edmElements = edmSounds.map(sound => {
-        return (<BeatButton key={sound.id} sound={sound} />)
+        return (<BeatButton key={sound.id} sound={sound} beatButtonWasClicked={beatButtonWasClicked} setBeatButtonWasClicked={setBeatButtonWasClicked}/>)
     })
 
     //if they are not muted, then make a player for each of them which starts upon them all being loaded
@@ -21,6 +21,7 @@ function EdmPads({ sounds, setPlayingSongs, setGlobalMute }) {
                 const edmSong = edmBeats.filter(beat => (beat.isMuted === false))
                 setPlayingSongs(edmSong)
                 setGlobalMute(false)
+                console.log(beats)
             })
     }
 

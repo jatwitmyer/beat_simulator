@@ -14,7 +14,7 @@
       "type": "drum",
       "name": "Drum 1",
       "ref": "/assets/EDM_Drums_1.mp3",
-      "isMuted": true
+      "isMuted": false
     },
     {
       "id": 3,
@@ -22,7 +22,7 @@
       "type": "drum",
       "name": "Drum 2",
       "ref": "/assets/EDM_Drums_2.mp3",
-      "isMuted": true
+      "isMuted": false
     },
     {
       "id": 4,
@@ -30,7 +30,7 @@
       "type": "drum",
       "name": "Snare",
       "ref": "/assets/EDM_Snares.mp3",
-      "isMuted": true
+      "isMuted": false
     },
     {
       "id": 5,

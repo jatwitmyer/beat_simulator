@@ -15,6 +15,7 @@ function App() {
   const [sounds, setSounds] = useState([])
   const [playingSongs, setPlayingSongs] = useState([])
   const [globalMute, setGlobalMute] = useState(false)
+  const [beatButtonWasClicked, setBeatButtonWasClicked] = useState(0)
 
   const audioSources = playingSongs.map(beat => {
     console.log(beat.ref)
@@ -29,18 +30,21 @@ function App() {
     fetch("http://localhost:8003/sounds")
       .then(r => r.json())
       .then(sounds => setSounds(sounds))
-  }, [])
-
+  }, [beatButtonWasClicked])
 
   return (
     <div className="App">
-      <NavBar muteSwitch={muteSwitch} />
+      <NavBar muteSwitch={muteSwitch}/>
       <Switch>
         <Route exact path="/">
           <Welcome />
         </Route>
         <Route exact path="/mixer">
-          <SavedBeats sounds={sounds} />
+          <SavedBeats
+            sounds={sounds}
+            beatButtonWasClicked={beatButtonWasClicked}
+            setBeatButtonWasClicked={setBeatButtonWasClicked}
+          />
           {audioSources}
         </Route>
         <Route exact path="/edm">
@@ -51,6 +55,8 @@ function App() {
                 sounds={sounds}
                 setGlobalMute={setGlobalMute}
                 setPlayingSongs={setPlayingSongs}
+                beatButtonWasClicked={beatButtonWasClicked}
+                setBeatButtonWasClicked={setBeatButtonWasClicked}
               />
               <ResetButton muteSwitch={muteSwitch} />
               {audioSources}
@@ -61,10 +67,12 @@ function App() {
           <div className="mixer">
             <Visuals />
             <div className="padscontainer">
-              <WubPads
+              <TrapPads
                 sounds={sounds}
                 setGlobalMute={setGlobalMute}
                 setPlayingSongs={setPlayingSongs}
+                beatButtonWasClicked={beatButtonWasClicked}
+                setBeatButtonWasClicked={setBeatButtonWasClicked}
               />
               <ResetButton muteSwitch={muteSwitch} />
               {audioSources}
@@ -75,10 +83,12 @@ function App() {
           <div className="mixer">
             <Visuals />
             <div className="padscontainer">
-              <TrapPads
+              <WubPads
                 sounds={sounds}
                 setGlobalMute={setGlobalMute}
                 setPlayingSongs={setPlayingSongs}
+                beatButtonWasClicked={beatButtonWasClicked}
+                setBeatButtonWasClicked={setBeatButtonWasClicked}
               />
               <ResetButton muteSwitch={muteSwitch} />
               {audioSources}
