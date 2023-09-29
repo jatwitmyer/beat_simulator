@@ -21,7 +21,6 @@ function EdmPads({ sounds, setPlayingSongs, setGlobalMute, beatButtonWasClicked,
                 const edmSong = edmBeats.filter(beat => (beat.isMuted === false))
                 setPlayingSongs(edmSong)
                 setGlobalMute(false)
-                // console.log(beats)
             })
     }
 

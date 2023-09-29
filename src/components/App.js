@@ -19,7 +19,6 @@ function App() {
   const [beatButtonWasClicked, setBeatButtonWasClicked] = useState(0)
   const [meeples, setMeeples] = useState("")
   const [resetDatabaseData, setResetDatabaseData] = useState([])
-  // const [muteButtonWasClicked, setMuteButtonWasClicked] = useState(0)
 
   const audioSources = playingSongs.map(beat => {
     return (globalMute ? '' : <Tracks key={beat.id} src={beat.ref} />)
@@ -28,7 +27,6 @@ function App() {
   const muteSwitch = () => {
     setGlobalMute(true)
     setMeeples("still")
-    // setMuteButtonWasClicked(muteButtonWasClicked + 1)
   }
 
   useEffect(() => {
@@ -43,7 +41,6 @@ function App() {
   }, [playingSongs])
 
   function resetDatabase() {
-    // console.log("Reset button clicked")
     sounds.forEach(sound => {
       fetch(`http://localhost:8003/sounds/${sound.id}`, {
         method: "PATCH",
@@ -53,7 +50,6 @@ function App() {
         })
       })
         .then(r => r.json())
-        // .then(data => {})
     })
     muteSwitch()
     setResetDatabaseData([0])

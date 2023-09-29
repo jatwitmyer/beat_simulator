@@ -23,11 +23,6 @@ function Welcome() {
   
   function handleForm(e) {
     e.preventDefault()
-    // const newResponse = {
-    //   comment: e.target.comment.value,
-    //   name: e.target.name.value
-    // }
-    // console.log(newResponse)
     fetch("http://localhost:8003/responses", {
       method: "POST",
       headers: {"Content-Type": "application/json"},

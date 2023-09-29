@@ -2,13 +2,6 @@ import React, { useEffect, useState } from "react";
 
 function BeatButton( { sound, beatButtonWasClicked, setBeatButtonWasClicked } ) {
 
-  // console.log(sound)
-
-  // const [isMuted, setIsMuted] = useState(sound.isMuted)
-  // const [isActive, setIsActive] = useState(false)
-
-  console.log(sound.genre + " " + sound.name, sound.isMuted)
-
   function handleClick() {
     fetch(`http://localhost:8003/sounds/${sound.id}`, {
       method: "PATCH",
@@ -22,9 +15,6 @@ function BeatButton( { sound, beatButtonWasClicked, setBeatButtonWasClicked } ) 
       })
     })
     .then(r=>r.json())
-    // .then(asset => console.log(asset))
-    // setIsMuted(!isMuted)
-    // setIsActive(!isActive)
     setBeatButtonWasClicked(beatButtonWasClicked + 1)
   }
 
