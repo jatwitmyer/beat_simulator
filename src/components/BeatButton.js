@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 
 function BeatButton( { sound, beatButtonWasClicked, setBeatButtonWasClicked } ) {
 
@@ -7,10 +7,6 @@ function BeatButton( { sound, beatButtonWasClicked, setBeatButtonWasClicked } ) 
       method: "PATCH",
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
-        "genre": sound.genre,
-        "type": sound.type,
-        "name": sound.name,
-        "ref": sound.ref,
         "isMuted": (!sound.isMuted)
       })
     })
