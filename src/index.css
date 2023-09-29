@@ -73,18 +73,6 @@ footer p {
   border: 2px solid rgb(184, 15, 241);
 }
 
-/* ANIMATION */
-
-@keyframes bounce {
-  from {
-    transform: translate Y (0px);
-  }
-  to {
-    transform: translateY(
-      var(--bounce-offset)
-    );
-  }
-}
 
 /* ANIMATION */
 
