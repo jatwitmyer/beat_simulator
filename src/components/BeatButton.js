@@ -1,22 +1,18 @@
 import React from "react";
 
-function BeatButton( { sound, beatButtonWasClicked, setBeatButtonWasClicked } ) {
+function BeatButton( { sound, isGreen, setIsGreen } ) {
+
+  const key = sound.genre + " " + sound.name
+  const value = !isGreen[`${key}`]
+  const updatedItem = {[key]:value}
 
   function handleClick() {
-    fetch(`http://localhost:8003/sounds/${sound.id}`, {
-      method: "PATCH",
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({
-        "isMuted": (!sound.isMuted)
-      })
-    })
-    .then(r=>r.json())
-    setBeatButtonWasClicked(beatButtonWasClicked + 1)
+    setIsGreen({...isGreen, ...updatedItem})
   }
 
     return(
       <div>
-        <button className={sound.isMuted ? `${sound.type}-pad` : `${sound.type}-pad-on`} onClick={handleClick} >{sound.name}</button>
+        <button className={isGreen[`${key}`] ? `${sound.type}-pad-on` : `${sound.type}-pad` } onClick={handleClick} >{sound.name}</button>
       </div>
     )
   }

@@ -1,29 +1,28 @@
 import React from "react";
 import BeatButton from "./BeatButton";
 
-function WubPads({ sounds, setPlayingSongs, setGlobalMute, beatButtonWasClicked, setBeatButtonWasClicked }) {
+function WubPads({ sounds, setGlobalMute, isGreen, setIsGreen, setIsPlaying }) {
 
     const wubstepSounds = sounds.filter(sound => sound.genre === "Wubstep")
 
     const wubstepElements = wubstepSounds.map(sound => {
-        return (<BeatButton key={sound.id} sound={sound} beatButtonWasClicked={beatButtonWasClicked} setBeatButtonWasClicked={setBeatButtonWasClicked}/>)
+        return (<BeatButton
+            key={sound.id}
+            sound={sound}
+            isGreen={isGreen}
+            setIsGreen={setIsGreen}
+            />)
     })
 
-    //if they are not muted, then make a player for each of them which starts upon them all being loaded
-
     function playWubstepSong() {
-        console.log("play song")
-        fetch(`http://localhost:8003/sounds`)
-            .then(r => r.json())
-            .then(beats => {
-                const wubBeats = beats.filter(beat => (beat.genre === "Wubstep"))
-                const wubSong = wubBeats.filter(beat => (beat.isMuted === false))
-                setPlayingSongs(wubSong)
-                setGlobalMute(false)
-            })
+        const clickedWubstepBeats = Object.entries(isGreen).filter(beat => beat[0].includes("Wubstep") && beat[1] === true).map(beat => beat[0].replace("Wubstep ", ""))
+        const passToApp = clickedWubstepBeats.map(beat => {
+            const returnedBeat = sounds.filter(sound => sound.genre === "Wubstep" && sound.name === beat)
+            return returnedBeat
+        }).map(item => item[0])
+        setIsPlaying(passToApp)
+        setGlobalMute(false)
     }
-
-
 
     return (
         <div>

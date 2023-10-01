@@ -1,26 +1,27 @@
 import React from "react";
 import BeatButton from "./BeatButton";
 
-function TrapPads({ sounds, setPlayingSongs, setGlobalMute, beatButtonWasClicked, setBeatButtonWasClicked }) {
+function TrapPads({ sounds, setGlobalMute, isGreen, setIsGreen, setIsPlaying }) {
 
     const trapSounds = sounds.filter(sound => sound.genre === "Trap")
 
     const trapElements = trapSounds.map(sound => {
-        return (<BeatButton key={sound.id} sound={sound} beatButtonWasClicked={beatButtonWasClicked} setBeatButtonWasClicked={setBeatButtonWasClicked}/>)
+        return (<BeatButton
+            key={sound.id}
+            sound={sound}
+            isGreen={isGreen}
+            setIsGreen={setIsGreen}
+            />)
     })
 
-    //if they are not muted, then make a player for each of them which starts upon them all being loaded
-
     function playTrapSong() {
-        console.log("play song")
-        fetch(`http://localhost:8003/sounds`)
-            .then(r => r.json())
-            .then(beats => {
-                const trapBeats = beats.filter(beat => (beat.genre === "Trap"))
-                const trapSong = trapBeats.filter(beat => (beat.isMuted === false))
-                setPlayingSongs(trapSong)
-                setGlobalMute(false)
-            })
+        const clickedTrapBeats = Object.entries(isGreen).filter(beat => beat[0].includes("Trap") && beat[1] === true).map(beat => beat[0].replace("Trap ", ""))
+        const passToApp = clickedTrapBeats.map(beat => {
+            const returnedBeat = sounds.filter(sound => sound.genre === "Trap" && sound.name === beat)
+            return returnedBeat
+        }).map(item => item[0])
+        setIsPlaying(passToApp)
+        setGlobalMute(false)
     }
 
     return (

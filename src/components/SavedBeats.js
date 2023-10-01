@@ -4,7 +4,7 @@ import WubPads from "./WubPads";
 import TrapPads from "./TrapPads";
 import ResetButton from "./ResetButton"
 
-function SavedBeats({ sounds, setPlayingSongs, beatButtonWasClicked, setBeatButtonWasClicked, muteSwitch, setGlobalMute}) {
+function SavedBeats({ sounds, setPlayingSongs, muteSwitch, setGlobalMute, isGreen, setIsGreen, setIsPlaying }) {
 
   return (
     <div>
@@ -12,22 +12,25 @@ function SavedBeats({ sounds, setPlayingSongs, beatButtonWasClicked, setBeatButt
             sounds={sounds}
             setGlobalMute={setGlobalMute}
             setPlayingSongs={setPlayingSongs}
-            beatButtonWasClicked={beatButtonWasClicked}
-            setBeatButtonWasClicked={setBeatButtonWasClicked}
+            isGreen={isGreen}
+            setIsGreen={setIsGreen}
+            setIsPlaying={setIsPlaying}
           />
           <TrapPads
             sounds={sounds}
             setGlobalMute={setGlobalMute}
             setPlayingSongs={setPlayingSongs}
-            beatButtonWasClicked={beatButtonWasClicked}
-            setBeatButtonWasClicked={setBeatButtonWasClicked}
+            isGreen={isGreen}
+            setIsGreen={setIsGreen}
+            setIsPlaying={setIsPlaying}
           />
           <WubPads
             sounds={sounds}
             setGlobalMute={setGlobalMute}
             setPlayingSongs={setPlayingSongs}
-            beatButtonWasClicked={beatButtonWasClicked}
-            setBeatButtonWasClicked={setBeatButtonWasClicked}
+            isGreen={isGreen}
+            setIsGreen={setIsGreen}
+            setIsPlaying={setIsPlaying}
           />
           <br></br>
           <ResetButton muteSwitch={muteSwitch} />

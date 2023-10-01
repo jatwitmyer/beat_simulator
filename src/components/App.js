@@ -11,16 +11,30 @@ import Welcome from "./Welcome";
 import ResetDatabase from "./ResetDatabase";
 import { Switch, Route } from 'react-router-dom';
 
-
 function App() {
   const [sounds, setSounds] = useState([])
-  const [playingSongs, setPlayingSongs] = useState([])
   const [globalMute, setGlobalMute] = useState(false)
-  const [beatButtonWasClicked, setBeatButtonWasClicked] = useState(0)
   const [meeples, setMeeples] = useState("")
-  const [resetDatabaseData, setResetDatabaseData] = useState([])
+  const [isPlaying, setIsPlaying] = useState([])
+  const [isGreen, setIsGreen] = useState({
+    "EDM Bass": false,
+    "EDM Drum 1": false,
+    "EDM Drum 2": false,
+    "EDM Snare": false,
+    "EDM Lead": false,
+    "Trap Bass": false,
+    "Trap Drum 1": false,
+    "Trap Drum 2": false,
+    "Trap Lead 1": false,
+    "Trap Lead 2": false,
+    "Wubstep Bass": false,
+    "Wubstep Drum 1": false,
+    "Wubstep Drum 2": false,
+    "Wubstep Lead 1": false,
+    "Wubstep Lead 2": false
+  })
 
-  const audioSources = playingSongs.map(beat => {
+  const audioSources = isPlaying.map(beat => {
     return (globalMute ? '' : <Tracks key={beat.id} src={beat.ref} />)
   })
 
@@ -34,25 +48,32 @@ function App() {
     fetch("http://localhost:8003/sounds")
       .then(r => r.json())
       .then(sounds => setSounds(sounds))
-  }, [beatButtonWasClicked, resetDatabaseData])
+  }, [])
 
   useEffect(() => {
-    setMeeples(playingSongs.length > 0 ? playingSongs[0].genre : "still")
-  }, [playingSongs])
+    setMeeples(isPlaying.length > 0 ? isPlaying[0].genre : "still")
+  }, [isPlaying])
 
   function resetDatabase() {
-    sounds.forEach(sound => {
-      fetch(`http://localhost:8003/sounds/${sound.id}`, {
-        method: "PATCH",
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          "isMuted": true
-        })
-      })
-        .then(r => r.json())
+    console.log("reset mixer button was clicked")
+    setIsGreen({
+      "EDM Bass": false,
+      "EDM Drum 1": false,
+      "EDM Drum 2": false,
+      "EDM Snare": false,
+      "EDM Lead": false,
+      "Trap Bass": false,
+      "Trap Drum 1": false,
+      "Trap Drum 2": false,
+      "Trap Lead 1": false,
+      "Trap Lead 2": false,
+      "Wubstep Bass": false,
+      "Wubstep Drum 1": false,
+      "Wubstep Drum 2": false,
+      "Wubstep Lead 1": false,
+      "Wubstep Lead 2": false
     })
     muteSwitch()
-    setResetDatabaseData([0])
   }
 
   return (
@@ -68,13 +89,12 @@ function App() {
             <div className="padscontainer">
               <SavedBeats
                 sounds={sounds}
-                playingSongs={playingSongs}
-                setPlayingSongs={setPlayingSongs}
-                beatButtonWasClicked={beatButtonWasClicked}
-                setBeatButtonWasClicked={setBeatButtonWasClicked}
                 setMeeples={setMeeples}
                 muteSwitch={muteSwitch}
                 setGlobalMute={setGlobalMute}
+                isGreen={isGreen}
+                setIsGreen={setIsGreen}
+                setIsPlaying={setIsPlaying}
               />
             </div>
             {audioSources}
@@ -92,9 +112,9 @@ function App() {
               <EdmPads
                 sounds={sounds}
                 setGlobalMute={setGlobalMute}
-                setPlayingSongs={setPlayingSongs}
-                beatButtonWasClicked={beatButtonWasClicked}
-                setBeatButtonWasClicked={setBeatButtonWasClicked}
+                isGreen={isGreen}
+                setIsGreen={setIsGreen}
+                setIsPlaying={setIsPlaying}
               />
               <ResetButton muteSwitch={muteSwitch} />
               {audioSources}
@@ -113,9 +133,9 @@ function App() {
               <TrapPads
                 sounds={sounds}
                 setGlobalMute={setGlobalMute}
-                setPlayingSongs={setPlayingSongs}
-                beatButtonWasClicked={beatButtonWasClicked}
-                setBeatButtonWasClicked={setBeatButtonWasClicked}
+                isGreen={isGreen}
+                setIsGreen={setIsGreen}
+                setIsPlaying={setIsPlaying}
               />
               <ResetButton muteSwitch={muteSwitch} />
               {audioSources}
@@ -134,9 +154,9 @@ function App() {
               <WubPads
                 sounds={sounds}
                 setGlobalMute={setGlobalMute}
-                setPlayingSongs={setPlayingSongs}
-                beatButtonWasClicked={beatButtonWasClicked}
-                setBeatButtonWasClicked={setBeatButtonWasClicked}
+                isGreen={isGreen}
+                setIsGreen={setIsGreen}
+                setIsPlaying
               />
               <ResetButton muteSwitch={muteSwitch} />
               {audioSources}
