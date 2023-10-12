@@ -156,7 +156,7 @@ function App() {
                 setGlobalMute={setGlobalMute}
                 isGreen={isGreen}
                 setIsGreen={setIsGreen}
-                setIsPlaying
+                setIsPlaying={setIsPlaying}
               />
               <ResetButton muteSwitch={muteSwitch} />
               {audioSources}
